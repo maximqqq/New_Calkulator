@@ -68,7 +68,7 @@ public class Panel extends JPanel {
             output.setEnabled(false);//В окне нельзя изменять
             add(output);
 
-            ActionListener l = (ActionEvent e ) ->//Лямдо вырожение
+            ActionListener l = (ActionEvent e ) ->//Лямдо вырожение Для сокрощ кода тоже что и итреф
             {
                 JButton b = (JButton)e.getSource();
                 output.setText(output.getText()+b.getText());
