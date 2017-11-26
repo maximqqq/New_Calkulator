@@ -68,7 +68,7 @@ public class Panel extends JPanel {
             output.setEnabled(false);//В окне нельзя изменять
             add(output);
 
-            ActionListener l = (ActionEvent e ) ->
+            ActionListener l = (ActionEvent e ) ->//Лямдо вырожение
             {
                 JButton b = (JButton)e.getSource();
                 output.setText(output.getText()+b.getText());
@@ -78,7 +78,7 @@ public class Panel extends JPanel {
             {
                 b.addActionListener(l);
             }
-
+//СЛУШАТЕЛЬ НАЖАТИЕ КНОПОК
             addKeyListener(new KeyAdapter()
             {
                 @Override
