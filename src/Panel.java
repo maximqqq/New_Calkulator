@@ -15,6 +15,8 @@ public class Panel extends JPanel {
     private JTextField output = new JTextField();
     private JButton bacspace = new JButton("<"), equ = new JButton("=");
     private JButton plus = new JButton("+"),mius = new JButton("-"),multi = new JButton("*"),div = new JButton("/");
+//    String op = "";
+    double temp = 0;
 
         public Panel()
         {
@@ -70,29 +72,102 @@ public class Panel extends JPanel {
 
             ActionListener l = (ActionEvent e ) ->//Лямдо вырожение Для сокрощ кода тоже что и итреф
             {
-                JButton b = (JButton)e.getSource();
+                JButton b = (JButton)e.getSource();//getSource() возвращает ссылку на объект, от которого пришло событие пруф
                 output.setText(output.getText()+b.getText());
             };
+
+
+
+
+// //===========КНОПКИ с ЧИСЛАМИ====================
+//
+//
+// //--------ДЕЙСТВИЕ С ОПЕРАЦИЯМИ-----------
+//            //------------------
+//            plus.addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                    char op = '+';
+//                    double temp = Double.valueOf(output.getText());
+//
+//                    output.setText("");
+//                }});
+//
+//            mius.addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                    char op = '-';
+//                    double temp = Double.valueOf(output.getText());
+//                    output.setText("");
+//                }});
+//
+//            multi.addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                    char op = '*';
+//                    double temp = Double.valueOf(output.getText());
+//                    output.setText("");
+//                }});
+//
+//            div.addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                    char op = '/';
+//                    double temp = Double.valueOf(output.getText());
+//                    output.setText("");
+//                }});
+
+//            equ.addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                    char op;
+//                    op = '+';
+//                    op = '-';
+//                    op = '*';
+//                    op = '/';
+//                    switch (op)
+//                    {
+//                        case '+':output.setText(String.valueOf(temp+Double.valueOf(output.getText()))); break;
+//                        case '-':output.setText(String.valueOf(temp-Double.valueOf(output.getText()))); break;
+//                        case '*':output.setText(String.valueOf(temp*Double.valueOf(output.getText()))); break;
+//                        case '/':output.setText(String.valueOf(temp/Double.valueOf(output.getText()))); break;
+//                    }
+//                }});
+
+
+                //-----------FINE---------------
 
             for(JButton b : numbers)
             {
                 b.addActionListener(l);
             }
-//СЛУШАТЕЛЬ НАЖАТИЕ КНОПОК
+
+
+//ВОЗВРАТ НА НАЖАТИЕ кНОПКИ
             addKeyListener(new KeyAdapter()
             {
                 @Override
                  public void keyPressed(KeyEvent e)
                 {
                     char symvol = e.getKeyChar();
-
-                    if(!Character.isDigit(symvol))
+                    if(e.getKeyChar() == '+' ||  //Исключение ввода знаков
+                            e.getKeyChar() == '-' ||
+                               e.getKeyChar() == '*' ||
+                                  e.getKeyChar() == '/'){output.setText("");}
+                    if(!Character.isDigit(symvol))//запрет на все символы кроме числовых
                     {
                         return;
                     }
+
                     output.setText(output.getText()+symvol);
                 }
             });
+
+
+
+
+
+
 
         }
 
