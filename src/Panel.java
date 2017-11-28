@@ -7,6 +7,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
+import javax.xml.soap.Text;
+
+import static java.lang.Double.*;
 
 public class Panel extends JPanel {
 
@@ -77,62 +82,84 @@ public class Panel extends JPanel {
             };
 
 
-
+//            equ.addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+////                    double secondValue = Double.valueOf(output.getText());
+//                    if("+".equals(plus)){
+//                        output.setText(output.getText()+ output.getText()+"");
+//                    }
+////                    if("-".equals(mius)){
+////                        output.setText(output.getText()-nextFocus(output.getText());+"");;
+////                    }
+////                    if("*".equals(multi)){
+////                        output.setText(output.getText() * valueOf(output.getText())+"");
+////                    }
+////                    if("/".equals(div)){
+////                        output.setText(output.getText()/ valueOf(output.getText())+"");
+////                    }
+////                    firstValue = 0;
+////                    operation = "+";
+//                }
+//            });
+//bacspace.addAncestorListener((AncestorListener) e -> {
+//  output.setText(TOOL_TIP_TEXT_KEY);
+//});
 
 // //===========КНОПКИ с ЧИСЛАМИ====================
 //
 //
 // //--------ДЕЙСТВИЕ С ОПЕРАЦИЯМИ-----------
-//            //------------------
-//            plus.addActionListener(new ActionListener() {
-//                @Override
-//                public void actionPerformed(ActionEvent e) {
-//                    char op = '+';
-//                    double temp = Double.valueOf(output.getText());
-//
-//                    output.setText("");
-//                }});
-//
-//            mius.addActionListener(new ActionListener() {
-//                @Override
-//                public void actionPerformed(ActionEvent e) {
-//                    char op = '-';
-//                    double temp = Double.valueOf(output.getText());
-//                    output.setText("");
-//                }});
-//
-//            multi.addActionListener(new ActionListener() {
-//                @Override
-//                public void actionPerformed(ActionEvent e) {
-//                    char op = '*';
-//                    double temp = Double.valueOf(output.getText());
-//                    output.setText("");
-//                }});
-//
-//            div.addActionListener(new ActionListener() {
-//                @Override
-//                public void actionPerformed(ActionEvent e) {
-//                    char op = '/';
-//                    double temp = Double.valueOf(output.getText());
-//                    output.setText("");
-//                }});
+            //------------------
+            plus.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    char op = '+';
+                    double temp = Double.valueOf(output.getText());
 
-//            equ.addActionListener(new ActionListener() {
-//                @Override
-//                public void actionPerformed(ActionEvent e) {
-//                    char op;
-//                    op = '+';
-//                    op = '-';
-//                    op = '*';
-//                    op = '/';
-//                    switch (op)
-//                    {
-//                        case '+':output.setText(String.valueOf(temp+Double.valueOf(output.getText()))); break;
-//                        case '-':output.setText(String.valueOf(temp-Double.valueOf(output.getText()))); break;
-//                        case '*':output.setText(String.valueOf(temp*Double.valueOf(output.getText()))); break;
-//                        case '/':output.setText(String.valueOf(temp/Double.valueOf(output.getText()))); break;
-//                    }
-//                }});
+                    output.setText("");
+                }});
+
+            mius.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    char op = '-';
+                    double temp = Double.valueOf(output.getText());
+                    output.setText("");
+                }});
+
+            multi.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    char op = '*';
+                    double temp = Double.valueOf(output.getText());
+                    output.setText("");
+                }});
+
+            div.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    char op = '/';
+                    double temp = Double.valueOf(output.getText());
+                    output.setText("");
+                }});
+
+            equ.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    char op;
+                    op = '+';
+                    op = '-';
+                    op = '*';
+                    op = '/';
+                    switch (op)
+                    {
+                        case '+':output.setText(String.valueOf(temp+Double.valueOf(output.getText()))); break;
+                        case '-':output.setText(String.valueOf(temp-Double.valueOf(output.getText()))); break;
+                        case '*':output.setText(String.valueOf(temp*Double.valueOf(output.getText()))); break;
+                        case '/':output.setText(String.valueOf(temp/Double.valueOf(output.getText()))); break;
+                    }
+                }});
 
 
                 //-----------FINE---------------
